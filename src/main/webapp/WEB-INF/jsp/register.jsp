@@ -107,7 +107,7 @@ text-align:center;
 
 
 
-<form action="#" method="post">
+<form  method="post">
 <h1> CAR RENTAL SYSTEM</h1>
   <h1>SIGN UP</h1>
   <p>

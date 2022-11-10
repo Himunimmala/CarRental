@@ -107,7 +107,7 @@ text-align:center;
 
 
   <h2> ${Msg} </h2>
-<form action="#" method="post">
+<form  method="post">
 <h1> CAR RENTAL SYSTEM</h1>
   <h1>SIGN IN</h1>
   <p>

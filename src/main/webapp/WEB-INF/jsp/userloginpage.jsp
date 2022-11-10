@@ -133,31 +133,30 @@ h1 {
   <header>
 
 
-    <form action="#" method="post">
+    <form  method="post" >
        <h1>Hello </h1>
-      <p>
-      			<label for="plocation" class="floatLabel">Pickup Location</label>
-      			<input id="plocation" name="plocaion" type="text">
-      </p>
-      		  <p>
-                  <label for="dlocation" class="floatLabel">Dropoff Location</label>
-                  <input id="dlocation" name="dlocaion" type="text">
-              </p>
+
 
     		<p>
     			<label for="pdate" class="floatLabel">Pickup date</label>
-    			<input id="pdate" name="pdate" type="date">
+    			<input id="pdate" name="pdate" type="text">
 
     		</p>
     		<p>
-                			<label for="ptime" class="floatLabel">Pickup time</label>
-                			<input id="ptime" name="ptime" type="time">
+                			<label for="ddate" class="floatLabel">dropoff date</label>
+                			<input id="ddate" name="ddate" type="text">
 
                 		</p>
+            <p>
+
+                			<label for="model" class="floatLabel">Model</label>
+                			<input id="model" name="model" type="text">
+
+            </p>
     		&nbsp;&nbsp;
 
 
-    			<input type="submit" value="Search" id="submit">
+			<input type="submit" value="Search" id="submit">
 
     		</p>
     	</form>
