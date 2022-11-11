@@ -134,18 +134,19 @@ h1 {
 
 
     <form  method="post" >
+
+    <a href="History">History</a>
        <h1>Hello </h1>
 
 
     		<p>
     			<label for="pdate" class="floatLabel">Pickup date</label>
-    			<input id="pdate" name="pdate" type="text">
+    			<input id="pdate" name="pdate" type="date">
 
     		</p>
     		<p>
                 			<label for="ddate" class="floatLabel">dropoff date</label>
-                			<input id="ddate" name="ddate" type="text">
-
+                			<input id="ddate" name="ddate" type="date">
                 		</p>
             <p>
 

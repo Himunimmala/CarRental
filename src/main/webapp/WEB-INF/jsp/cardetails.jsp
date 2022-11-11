@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%! int day = 3; %>
 <!DOCTYPE HTML>
 <html>
   <head>
@@ -10,6 +10,9 @@
   <style>
   table, th, td {
     border: 1px solid black;
+  }
+  td{
+  text-align: center;
   }
   table.center {
     margin-left: auto;
@@ -73,44 +76,32 @@
   </style>
   </head>
   <body>
-    <h1>Person List</h1>
+    <h1>CAR DETAILS</h1>
 
-    <br/><br/>
-    <div>
       <table border="1">
         <tr>
-          <th>AVAILABLE CAR NAME</th>
+          <th> CAR NAME</th>
           <th>CAR RENT COST</th>
           <th> CAR SEATS</th>
-          <th> ID</th>
-          <th></th>
+          <th> ID </th>
+          <th>BOOK </th>
         </tr>
         <c:forEach  items="${personsList}" var ="person">
         <tr>
-              <td>${person.carname}</td>
+
+          <td>${person.carname}</td>
           <td>${person.cost}</td>
           <td>${person.seats}</td>
+
           <td>${person.id}</td>
           <td>
-          <a href="last"> book</a>
-          </td>
-                 </a>
-                 </span>
-               </div>
-</td>
+                <a href="last"> book</a>
+           </td>
         </tr>
         </c:forEach>
       </table>
 
-    </div>
 
-<script>
-// When the user clicks on div, open the popup
-function myFunction() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
-}
-</script>
   </body>
 
 </html>

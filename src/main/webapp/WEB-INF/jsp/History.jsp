@@ -19,13 +19,13 @@
   </head>
   <body>
   <form method="post">
-  <input type="number" value="id" name="id" placeholder="Enter id">
+  <input type="number" value="id" name="id" placeholder="Enter reservation id">
   </input>
   <div>
   </div>
   <div>
   </div>
-  <input type="submit" value="CONFIRM">
+  <input type="submit" value="SUBMIT">
   </input>
   </form>
 

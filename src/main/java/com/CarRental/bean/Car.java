@@ -1,12 +1,33 @@
-package com.CarRental.Controller.bean;
+package com.CarRental.bean;
 
 import java.sql.Date;
 import java.sql.Time;
 
-public class car {
+public class Car {
     private String plocation;
     private String carname;
     private int cost;
+    private int regnum;
+
+    private Date ddate;
+
+    public Date getDdate() {
+        return ddate;
+    }
+
+    public void setDdate(Date ddate) {
+        this.ddate = ddate;
+    }
+
+    public int getRegnum() {
+        return regnum;
+    }
+
+    public void setRegnum(int regnum) {
+        this.regnum = regnum;
+    }
+
+
 
     public int getId() {
         return id;

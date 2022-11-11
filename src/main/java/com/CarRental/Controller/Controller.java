@@ -1,16 +1,17 @@
 package com.CarRental.Controller;
 
-import com.CarRental.Controller.bean.User;
-import com.CarRental.Controller.bean.car;
-import com.CarRental.service.Service;
+import com.CarRental.bean.User;
+import com.CarRental.bean.Car;
+import com.CarRental.Service.Service;
+import com.CarRental.bean.Car;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.sql.Date;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.List;
 
 @org.springframework.stereotype.Controller
@@ -75,45 +76,91 @@ public class Controller {
     public String lastpage() {
         return "last";
     }
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @RequestMapping(value = "/errorpage", method = RequestMethod.GET)
+    public String epage() {
+        return "errorpage";
+    }
+    @RequestMapping(value = "/cardetails", method = RequestMethod.GET)
     public String index() {
-        return "index";
+        return "cardetails";
+    }
+
+    @RequestMapping(value = "/cardetails", method = RequestMethod.POST)
+    public String index2() {
+        return "cardetails";
+    }
+    @RequestMapping(value = "/History", method = RequestMethod.GET)
+    public String history() {
+        return "History";
+    }
+    @RequestMapping(value = "/Historydetails", method = RequestMethod.GET)
+    public String historydetails() {
+        return "Historydetails";
     }
     @RequestMapping(value = "/final", method = RequestMethod.GET)
     public String finalone() {
+//        List<Car> u=service.getreservationnmber();
+//        ModelAndView model1 = new ModelAndView();
+//        model1.addObject("personsList", u);
+//        model1.setViewName("cardetails");
+//        return model1;
+
         return "final";
     }
     @RequestMapping(value = "/last", method = RequestMethod.POST)
-    public String next(@RequestParam int id) throws ClassNotFoundException {
+    public ModelAndView next(@RequestParam int id) throws ClassNotFoundException {
         System.out.println("working");
-        int a= service.getusercardetails(id);
-//        ModelAndView model1 = new ModelAndView();
-//        model1.addObject("personsList", a);
-//
-//        model1.setViewName("last");
-        return "redirect:final";
+        List<Car> a= service.getusercardetails(id);
+        ModelAndView model1 = new ModelAndView();
+        model1.addObject("regnum", a);
+
+        model1.setViewName("final");
+//        return "redirect:final";
+        return model1;
+    }
+    @RequestMapping(value = "/History", method = RequestMethod.POST)
+    public ModelAndView historydetails(@RequestParam int id) throws ClassNotFoundException {
+        System.out.println("working for history");
+        List<Car> a= service.gethistorydetails(id);
+        System.out.println("list:"+a);
+        ModelAndView model1 = new ModelAndView();
+        if(a.size()==0)
+        {
+            model1.addObject("personsList",a);
+            model1.setViewName("errorpage");
+            return model1;
+        }
+        model1.addObject("regnum", a);
+
+        model1.setViewName("Historydetails");
+//        return "redirect:final";
+        return model1;
     }
 
-    @RequestMapping(value = "/userloginpage", method = RequestMethod.POST)
-    public ModelAndView cardetailspage(@RequestParam String pdate,@RequestParam String ddate,@RequestParam String model) {
+    @RequestMapping( value = "/userloginpage", method = RequestMethod.POST)
+    public ModelAndView cardetailspage(@RequestParam Date pdate, @RequestParam Date ddate, @RequestParam String model) {
 //        ModelAndView model1 = new ModelAndView();
 
-        ModelAndView model1 = new ModelAndView(new RedirectView("index"));
+        ModelAndView model1 = new ModelAndView();
+//
+//        LocalDate start=LocalDate.parse(pdate);
+//        LocalDate end=LocalDate.parse(ddate);
+        List<Car> user=  service.getcardetails(pdate,ddate, model);
+        if(user.size()==0)
+        {
+            model1.addObject("personsList", user);
+            model1.setViewName("errorpage");
+            return model1;
+        }
 
-        LocalDate start=LocalDate.parse(pdate);
-        LocalDate end=LocalDate.parse(ddate);
-        List<car> user=  service.getcardetails(start,end, model);
 //        car c1= new car();
 //        c1.setCarname("test");
 //        c1.setCost(100);
 //        user.add(c1);
-        //       for(int i=0;i<user.size();i++)
+        //for(int i=0;i<user.size();i++)
 //          System.out.println(user.get(i).getCost());
         model1.addObject("personsList", user);
-
-        model1.setViewName("index");
-
-
+        model1.setViewName("cardetails");
        return model1;
     }
 }

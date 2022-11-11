@@ -33,7 +33,10 @@
 h1 {
   font-weight:normal;
 }
-
+a
+{
+text-color:red;
+}
 </style>
 </head>
 <body>
@@ -47,6 +50,8 @@ h1 {
 
 <a href="login">sign in </a> &nbsp; &nbsp; &nbsp; &nbsp;
 <a href="register">sign up</a>
+
+
   </header>
 </div>
 

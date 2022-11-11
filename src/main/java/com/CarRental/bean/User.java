@@ -1,4 +1,4 @@
-package com.CarRental.Controller.bean;
+package com.CarRental.bean;
 
 public class User {
     private String userId;

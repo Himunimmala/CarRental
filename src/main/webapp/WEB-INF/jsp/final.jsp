@@ -7,22 +7,19 @@
     <title>Person List</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css"/>
 
-  <style>
-  table, th, td {
-    border: 1px solid black;
-  }
-  table.center {
-    margin-left: auto;
-    margin-right: auto;
-  }
   </style>
   </head>
   <body>
-
-
   <h1>
   SUCESSFULLY BOOKED
   </h1>
+  <h2>
+  YOUR REGISTRATION NUMBER :
+          <c:forEach  items="${regnum}" var ="person">
+            ${person.regnum}
+          </c:forEach>
+
+  </h2>
   <a href="Welcome"> logout</a>
   </body>
 
