@@ -97,7 +97,6 @@ public class Controller {
     @RequestMapping( value = "/userloginpage", method = RequestMethod.POST)
     public ModelAndView cardetailspage(@RequestParam Date pdate, @RequestParam Date ddate, @RequestParam String model) {
         ModelAndView model1 = new ModelAndView();
-
         List<Car> user=  service.getcardetails(pdate,ddate, model);
         if(user.size()==0)
         {
@@ -134,7 +133,9 @@ public class Controller {
 //        return "redirect:final";
         return model1;
     }
-
+ /*
+ * car details get mapping gives the details of the car
+  */
     @RequestMapping(value = "/cardetails", method = RequestMethod.GET)
     public String index() {
         return "cardetails";
