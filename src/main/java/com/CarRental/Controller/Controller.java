@@ -109,6 +109,7 @@ public class Controller {
         model1.setViewName("cardetails");
         return model1;
     }
+
     /*
      * last get mapping gives the id to be selected from previous car details table.
      * id

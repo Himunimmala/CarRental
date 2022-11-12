@@ -127,8 +127,7 @@ public class DaoImpl extends JdbcDaoSupport implements Dao {
         String sql;
 
         List<Car> c=new ArrayList<>();
-
-            sql = "SELECT id FROM bookdetails where regnum=? ";
+        sql = "SELECT id FROM bookdetails where regnum=? ";
         Object[] inputs = new Object[] {rid};
         String empName = getJdbcTemplate().queryForObject(sql, inputs, String.class);
         System.out.println("details:"+empName);
@@ -159,12 +158,8 @@ public class DaoImpl extends JdbcDaoSupport implements Dao {
     {
         String sql2 = "UPDATE userdetails set status=1 where id=?";
         Random random = new Random();
-
         int regnum = random.nextInt(100050);
-
         String sql3 = " insert into  bookdetails (regnum,id) values(?,?)";
-
-
         int res = 0;
         jdbcTemplate.update(sql2, id);
         jdbcTemplate.update(sql3, regnum, id);
@@ -172,7 +167,6 @@ public class DaoImpl extends JdbcDaoSupport implements Dao {
         String sql5 = "SELECT * FROM bookdetails where id=? ";
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql5, id);
         List<Car> c = new ArrayList<>();
-
         System.out.println("list"+list);
         for (Map<String, Object> map : list) {
             Car cl = new Car();
