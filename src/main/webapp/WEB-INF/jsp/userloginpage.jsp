@@ -36,13 +36,14 @@ body {
   font-family: sans-serif;
   font-size: 10px
 }
-form {
-
+div{
+  background: #fff;
   padding: 4em 4em 2em;
   max-width: 400px;
-
+  margin: 50px auto 0;
   box-shadow: 0 0 1em #222;
-
+  border-radius: 2px;
+  }
   h2 {
     margin:0 0 50px 0;
     padding:10px;
@@ -55,72 +56,53 @@ form {
     margin: 0 0 3em 0;
     position: relative;
   }
-  input {
-    display: block;
-    box-sizing: border-box;
+  input, select {
     width: 100%;
-    outline: none;
-    margin:0;
-  }
-  input[type="text"],
-  input[type="password"] {
-    background: #fff;
-    border: 1px solid #dbdbdb;
-    font-size: 1.6em;
-    padding: .8em .5em;
-    border-radius: 2px;
-  }
-  input[type="text"]:focus,
-  input[type="password"]:focus {
-    background: #fff
-  }
-  span {
-    display:block;
-    background: #F9A5A5;
-    padding: 2px 5px;
-    color: #666;
-  }
-  input[type="submit"] {
-    background: $button;
-    box-shadow: 0 3px 0 0 darken($button, 10%);
-    border-radius: 2px;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    display: block;
-    font-size: 2em;
-    line-height: 1.6em;
-    margin: 2em 0 0;
-    outline: none;
-    padding: .8em 0;
-    text-shadow: 0 1px #68B25B;
-  }
-  input[type="submit"]:hover {
-    background: rgba(148,175,101,1);
-    text-shadow:0 1px 3px darken($button, 30%);
-  }
-  input[type="submit"]:hover {
-
-  }
-  label{
-    position: absolute;
-    left: 8px;
-    top: 9px;
-    color: #999;
-    font-size: 16px;
+    padding: 10px 20px;
+    margin: 8px 0;
     display: inline-block;
-    padding: 4px 10px;
-    font-weight: 400;
-    background-color: color;
-    @include transition(color .3s, top .3s, background-color .8s);
-    &.floatLabel{
-      top: -11px;
-      background-color: black;
-      font-size: 14px;
-    }
-	}
-h1 {
-  font-weight:normal;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+
+h1
+{
+text-align:center;
+}
+button
+{
+border-radius: 8px;
+  background-color: green;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+  button:hover {
+    background-color: #45a049;
+  }
+
 }
 
 </style>
@@ -128,17 +110,11 @@ h1 {
 <body>
 
 
-<div class="bg"></div>
-<div class="content">
-  <header>
-
-
+<div>
     <form  method="post" >
 
-    <a href="History">History</a>
-       <h1>Hello </h1>
 
-
+       <h1>Car Rentals</h1>
     		<p>
     			<label for="pdate" class="floatLabel">Pickup date</label>
     			<input id="pdate" name="pdate" type="date">
@@ -161,7 +137,7 @@ h1 {
 
     		</p>
     	</form>
-  </header>
+    <button><a href="History">History</a></button>
 </div>
 
 

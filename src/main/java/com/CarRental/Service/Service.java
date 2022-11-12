@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface Service {
     User getUserByUserId(String userId);
-    int addUser(String Name, String Email, int mobile,  String password,  String Cpassword) throws SQLException, ClassNotFoundException;
+    int addUser(String Name, String Email,  String password,  String Cpassword) throws SQLException, ClassNotFoundException;
 
     List getcardetails(Date pdate, Date ddate, String model);
     List<Car> getusercardetails(int id) throws ClassNotFoundException;

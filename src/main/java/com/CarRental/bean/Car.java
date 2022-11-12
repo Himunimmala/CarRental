@@ -26,9 +26,6 @@ public class Car {
     public void setRegnum(int regnum) {
         this.regnum = regnum;
     }
-
-
-
     public int getId() {
         return id;
     }

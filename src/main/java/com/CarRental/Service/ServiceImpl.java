@@ -20,8 +20,8 @@ public class ServiceImpl implements Service {
         User user=userDao.getUserById(userId);
         return user;
     }
-    public int addUser(String Name, String Email, int mobile,  String password,  String Cpassword) throws SQLException, ClassNotFoundException {
-        int user1=userDao.addUserdetails(Name,Email,mobile, password,Cpassword);
+    public int addUser(String Name, String Email,  String password,  String Cpassword) throws SQLException, ClassNotFoundException {
+        int user1=userDao.addUserdetails(Name,Email, password,Cpassword);
         return user1;
     }
     public List getcardetails(Date pdate, Date ddate, String model){

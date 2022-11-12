@@ -4,81 +4,50 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Person List</title>
+
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css"/>
-
   <style>
-  table, th, td {
-    border: 1px solid black;
-  }
-  td{
-  text-align: center;
-  }
-  table.center {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .popup {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
+ #customers {
+   font-family: Arial, Helvetica, sans-serif;
+   border-collapse: collapse;
+   width: 100%;
+ }
+ div{
 
-  /* The actual popup */
-  .popup .popuptext {
-    visibility: hidden;
-    width: 160px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -80px;
-  }
+   padding: 4em 4em 2em;
+   max-width: 800px;
+   margin: 20px auto 0;
 
-  /* Popup arrow */
-  .popup .popuptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-  }
+   border-radius: 2px;
+   }
 
-  /* Toggle this class - hide and show the popup */
-  .popup .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
-  }
+ #customers td, #customers th {
+   border: 1px solid #ddd;
+   padding: 8px;
+ }
 
-  /* Add animation (fade in the popup) */
-  @-webkit-keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-  }
+ #customers tr:nth-child(even){background-color: #f2f2f2;}
 
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-  }
+ #customers tr:hover {background-color: #ddd;}
+
+ #customers th {
+   padding-top: 12px;
+   padding-bottom: 12px;
+   text-align: center;
+   background-color: #04AA6D;
+   color: white;
+ }
+ #customers td
+ {
+   text-align: center;
+ }
   </style>
   </head>
   <body>
-    <h1>CAR DETAILS</h1>
+  <div>
+    <h1 style="text-align:center;">CAR DETAILS</h1>
 
-      <table border="1">
+      <table id="customers" >
         <tr>
           <th> CAR NAME</th>
           <th>CAR RENT COST</th>
@@ -98,7 +67,8 @@
         </tr>
         </c:forEach>
       </table>
-
+      <a href="login"> back</a>
+</div>
 
   </body>
 

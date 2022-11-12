@@ -49,18 +49,18 @@ public class DaoImpl extends JdbcDaoSupport implements Dao {
 
     }
 
-    public int addUserdetails(String Name, String Email, int mobile, String password, String Cpassword) throws ClassNotFoundException {
+    public int addUserdetails(String Name, String Email, String password, String Cpassword) throws ClassNotFoundException {
 
-        String sql = "insert into register(name,email,mobile,pwd,cpwd) values(?,?,?,?,?) ";
+        String sql = "insert into register(name,email,pwd,cpwd) values(?,?,?,?) ";
         int res = 0;
         Class.forName("com.mysql.jdbc.Driver");
         try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/demo", "root", "123456")) {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, Name);
             ps.setString(2, Email);
-            ps.setInt(3, mobile);
-            ps.setString(4, password);
-            ps.setString(5, Cpassword);
+
+            ps.setString(3, password);
+            ps.setString(4, Cpassword);
             res = ps.executeUpdate();
 
         } catch (SQLException e) {
@@ -71,23 +71,7 @@ public class DaoImpl extends JdbcDaoSupport implements Dao {
 
     }
 
-//    public car getCars(String plocation, String dlocation, Date pdate) {
-//        String sql = "select car_name from cardetails where pick_location='forum mall' and drop_location='airport,bangalore'";
-//
-//        return getJdbcTemplate().queryForObject(sql, new Object[]{plocation}, new RowMapper<car>() {
-//
-//            @Override
-//            public car mapRow(ResultSet rs, int rowNum) throws SQLException {
-//                car c = new car();
-//                c.setPlocation(plocation);
-//                c.setDlocation(dlocation);
-//
-//
-//                return c;
-//            }
-//        });
-//
-//    }
+
     public List<Car> getCars(Date pdate, Date ddate, String model)
     {
         String sql;
@@ -130,21 +114,6 @@ public class DaoImpl extends JdbcDaoSupport implements Dao {
             }
         }
 
-
-//        new RowMapper<car>() {
-//
-//             @Override
-//             public car mapRow(ResultSet rs, int rowNum) throws SQLException {
-//                 car user = new car();
-//                 user.setPlocation(plocation);
-//                 user.setCarname(rs.getString(1));
-//                 user.setCost(rs.getInt(2));
-//                 user.setSeats(rs.getInt(3));
-//
-//                 return user;
-//             }
-//         });
-//        System.out.println(c.get(1).getCost());
         if(c.size()==0)
         {
             System.out.println("Sorry! no cars available");
@@ -160,7 +129,6 @@ public class DaoImpl extends JdbcDaoSupport implements Dao {
         List<Car> c=new ArrayList<>();
 
             sql = "SELECT id FROM bookdetails where regnum=? ";
-      //  String query = "select name from employee where emp_id=?";
         Object[] inputs = new Object[] {rid};
         String empName = getJdbcTemplate().queryForObject(sql, inputs, String.class);
         System.out.println("details:"+empName);
@@ -183,59 +151,6 @@ public class DaoImpl extends JdbcDaoSupport implements Dao {
             c.add(cl);
             System.out.println(cl.getCarname());
         }
-
-
-
-//        String a= jdbcTemplate.queryForObject(sql,rid);
-
-//        List<Car> l=getJdbcTemplate().query(sql,new Object[]{rid},new ResultSetExtractor<List<Car>>(){
-//
-//            public List<Car> extractData(ResultSet rs) throws SQLException, DataAccessException {
-//                List<Car> list = new ArrayList<Car>();
-//                while (rs.next()) {
-//                    Car student = new Car();
-//                    student.setId(rs.getInt("id"));
-//                    //student.setCompany(rs.getString("company"));
-//                    System.out.println(student.getId());
-//                    int a=student.getId();
-//                    String sql4 = "SELECT * FROM userdetails where id=? ";
-//                    List<Map<String,Object>> list1 = jdbcTemplate.queryForList(sql,a);
-//
-//
-//                    //System.out.println(list);
-//                    for(Map<String,Object> map:list1)
-//                    {
-//                        Car cl=new Car();
-//                        cl.setCarname((String) map.get("model"));
-//                        cl.setCost((Integer) map.get("car_cost"));
-//                        cl.setSeats((Integer) map.get("car_seats"));
-//                        cl.setPdate((Date) map.get("pdate"));
-//                        cl.setDdate((Date) map.get("ddate"));
-//                        cl.setId((Integer) map.get("id"));
-//                        list.add(cl);
-//                        System.out.println(cl.getCarname());
-//                    }
-//
-//                }
-//
-//                return list;
-//            }
-//        });
-
-
-
-        //System.out.println(list);
-//            for(Map<String,Object> map:list)
-//            {
-//                Car cl=new Car();
-//                cl.setCarname((String) map.get("model"));
-//                cl.setCost((Integer) map.get("car_cost"));
-//                cl.setSeats((Integer) map.get("car_seats"));
-//                cl.setId((Integer) map.get("id"));
-//                c.add(cl);
-//                System.out.println(cl.getCarname());
-//            }
-
      return c;
 
     }
@@ -245,7 +160,7 @@ public class DaoImpl extends JdbcDaoSupport implements Dao {
         String sql2 = "UPDATE userdetails set status=1 where id=?";
         Random random = new Random();
 
-        int regnum = random.nextInt(50);
+        int regnum = random.nextInt(100050);
 
         String sql3 = " insert into  bookdetails (regnum,id) values(?,?)";
 

@@ -4,81 +4,51 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Person List</title>
+
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css"/>
 
   <style>
-  table, th, td {
-    border: 1px solid black;
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+div{
+
+  padding: 4em 4em 2em;
+  max-width: 800px;
+  margin: 20px auto 0;
+
+  border-radius: 2px;
   }
-  td{
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
   text-align: center;
-  }
-  table.center {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .popup {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-
-  /* The actual popup */
-  .popup .popuptext {
-    visibility: hidden;
-    width: 160px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -80px;
-  }
-
-  /* Popup arrow */
-  .popup .popuptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-  }
-
-  /* Toggle this class - hide and show the popup */
-  .popup .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
-  }
-
-  /* Add animation (fade in the popup) */
-  @-webkit-keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-  }
-
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-  }
+  background-color: #04AA6D;
+  color: white;
+}
+#customers td
+{
+  text-align: center;
+}
   </style>
   </head>
   <body>
-    <h1>CAR DETAILS</h1>
+  <div>
+    <h1 style="text-align:center;">CAR DETAILS</h1>
 
-      <table border="1">
+      <table id="customers" >
         <tr>
           <th> CAR NAME</th>
           <th>CAR RENT COST</th>
@@ -86,7 +56,7 @@
           <th> ID </th>
           <th>BOOK </th>
         </tr>
-        <c:forEach  items="${personsList}" var ="person">
+        <c:forEach  items="${cardetails}" var ="person">
         <tr>
 
           <td>${person.carname}</td>
@@ -101,7 +71,7 @@
         </c:forEach>
       </table>
 
-
+</div>
   </body>
 
 </html>

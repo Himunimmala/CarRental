@@ -35,7 +35,22 @@ h1 {
 }
 a
 {
-text-color:red;
+ color: white;
+
+}
+button
+{
+border-radius: 8px;
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  cursor: pointer;
 }
 </style>
 </head>
@@ -48,8 +63,8 @@ text-color:red;
     <h1>WELCOME TO CAR RENTAL SYSTEM</h1>
     <p>Brightness and contrast on the background dropped to 70% to keep the text easy to read over any image. Ideal for using with user defined images. Reload the page to get a new random image.</p>
 
-<a href="login">sign in </a> &nbsp; &nbsp; &nbsp; &nbsp;
-<a href="register">sign up</a>
+<button><a href="login">sign in </a></button> &nbsp; &nbsp; &nbsp; &nbsp;
+<button><a href="register">sign up</a></button>
 
 
   </header>
