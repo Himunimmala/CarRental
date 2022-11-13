@@ -72,7 +72,7 @@ text-align:center;
 
   <h1>SIGN IN</h1>
   <p>
-  			<label for="Name" class="floatLabel">Full Name</label>
+  			<label for="Name" class="floatLabel">Email Id</label>
   			<input id="userId" name="userId" type="text">
   		</p>
 		<p>

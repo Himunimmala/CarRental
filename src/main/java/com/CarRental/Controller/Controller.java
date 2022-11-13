@@ -44,7 +44,12 @@ public class Controller {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String UserLoginPage(ModelMap model, @RequestParam String userId, @RequestParam String password) {
         User user= service.getUserByUserId(userId);
-        if(user.getPassword().equals(password)){
+//        System.out.println("user"+user);
+        if(user.getUser()==null || user.getPassword()==null)
+        {
+            return "login";
+        }
+        if((user.getPassword().equals(password)) && (user.getUser().equals(userId)) ){
             model.put("userId",userId);
             return "redirect:userloginpage";
         }
@@ -148,7 +153,6 @@ public class Controller {
 
     @RequestMapping(value = "/final", method = RequestMethod.GET)
     public String finalone() {
-
         return "final";
     }
 
