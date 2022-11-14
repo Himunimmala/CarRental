@@ -96,6 +96,7 @@ text-align:center;
 		<p>
 			<label for="Email" class="floatLabel">Email</label>
 			<input id="Email" name="Email" type="text" required>
+			<h1>{Msg}</h1>
 		</p>
 
 		<p>

@@ -37,4 +37,9 @@ public class ServiceImpl implements Service {
         List u=userDao.gethistory(rid);
         return u;
     }
+    public List getreturn(int rid)
+    {
+        List u=userDao.returnf(rid);
+        return u;
+    }
 }

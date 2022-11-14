@@ -64,23 +64,31 @@ public class DaoImpl extends JdbcDaoSupport implements Dao {
     }
 
     public int addUserdetails(String Name, String Email, String password, String Cpassword) throws ClassNotFoundException {
+        try {
 
-        String sql = "insert into register(name,email,pwd,cpwd) values(?,?,?,?) ";
-        int res = 0;
-        Class.forName("com.mysql.jdbc.Driver");
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/demo", "root", "123456")) {
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, Name);
-            ps.setString(2, Email);
+            String sql = "insert into register(name,email,pwd,cpwd) values(?,?,?,?) ";
+            int res = 0;
+            Class.forName("com.mysql.jdbc.Driver");
+            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/demo", "root", "123456")) {
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setString(1, Name);
+                ps.setString(2, Email);
 
-            ps.setString(3, password);
-            ps.setString(4, Cpassword);
-            res = ps.executeUpdate();
+                ps.setString(3, password);
+                ps.setString(4, Cpassword);
+                res = ps.executeUpdate();
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            return res;
         }
-        return res;
+        catch(Exception e)
+        {
+            int res=0;
+            System.out.println("enter details properly");
+            return res;
+        }
 
 
     }
@@ -91,7 +99,7 @@ public class DaoImpl extends JdbcDaoSupport implements Dao {
         String sql;
         System.out.println(model);
         List<Car> c=new ArrayList<>();
-        if(model.equals("any"))
+        if(model.equals("all"))
         {
             try {
                 sql = "SELECT * FROM userdetails where pdate<=? and ddate>=?  and status=0 ";
@@ -217,6 +225,34 @@ public class DaoImpl extends JdbcDaoSupport implements Dao {
             System.out.println("Sorry no details||");
         }
         return c;
+    }
+    public List<Car> returnf(int rid)
+    {
+        String sql;
+
+        List<Car> c=new ArrayList<>();
+        System.out.println("details:");
+        try {
+            sql = "SELECT id FROM bookdetails where regnum=? ";
+            Object[] inputs = new Object[] {rid};
+            String empName = getJdbcTemplate().queryForObject(sql, inputs, String.class);
+            //System.out.println("details:");
+            Integer number = Integer.valueOf(empName);
+            sql = "UPDATE userdetails set status=0 where id=?";
+            jdbcTemplate.update(sql, number);
+
+            List<Car> c1=new ArrayList<>();
+            //System.out.println(list);
+
+        }
+        catch(Exception e)
+        {
+            System.out.println("No result present");
+
+        }
+
+        return c;
+
     }
 
 }

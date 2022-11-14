@@ -14,5 +14,7 @@ public interface Service {
     List getcardetails(Date pdate, Date ddate, String model);
     List<Car> getusercardetails(int id) throws ClassNotFoundException;
    List gethistorydetails(int id);
+    List getreturn(int id);
+
 
 }

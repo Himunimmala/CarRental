@@ -39,7 +39,7 @@ public class Controller {
     }
     /*
      * Signin page post mapping helps to submit the username and password to database and validates it
-     * Whether the user is already present or not/
+     * Whether the user is already present or not.
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String UserLoginPage(ModelMap model, @RequestParam String userId, @RequestParam String password) {
@@ -81,6 +81,10 @@ public class Controller {
 //            return "register";
 //        }
         int user= service.addUser(Name, Email,password,   Cpassword);
+        if(user==0)
+        {
+            return "redirect:register";
+        }
 
         return "redirect:login";
     }
@@ -190,6 +194,27 @@ public class Controller {
     public String epage() {
         return "errorpage";
     }
+    @RequestMapping(value = "/return", method = RequestMethod.GET)
+    public String returnpage() {
+        return "return";
+    }
+    /*
+     * last page post mapping takes the id from user
+     * generates the Reservation number
+     *  updates the status
+     */
+    @RequestMapping(value = "/return", method = RequestMethod.POST)
+    public ModelAndView returnf(@RequestParam int id) throws ClassNotFoundException {
+        System.out.println("working");
+        List<Car> a= service.getreturn(id);
+        ModelAndView model1 = new ModelAndView();
+        model1.addObject("regnum", a);
+
+        model1.setViewName("returnpage");
+//        return "redirect:final";
+        return model1;
+    }
+
 
 
 }

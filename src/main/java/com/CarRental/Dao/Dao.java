@@ -15,4 +15,6 @@ public interface Dao {
     List<Car> getcardetails(int id) throws ClassNotFoundException;
 
    List gethistory(int rid);
+
+    List returnf(int rid);
 }
